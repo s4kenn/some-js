@@ -21,7 +21,9 @@
       const keyDownEvent = document.getElementById("keyDown");
 
       window.addEventListener("keydown", (event) => {
-        keyDownEvent.innerHTML = `You pressed ${event.key}`;
+        keyDownEvent.innerHTML = `You pressed ${
+          event.key === " " ? "space" : event.key
+        }`;
       });
     </script>
   </body>
