@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Request</title>
+  </head>
+  <body>
+    <script>
+      const url = `https://api.github.com/users/s4kenn`;
+      // we are making an object
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("GET", url);
+      xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+          const data = JSON.parse(this.responseText);
+          console.log(typeof data);
+          console.log(data.location);
+        }
+      };
+      xhr.send();
+      //   console.log(`HERE`);
+    </script>
+  </body>
+</html>
