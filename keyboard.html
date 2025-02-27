@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyboard Check</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Press the key and watch magic</h2>
+    <div id="keyDown"></div>
+    <script>
+      const keyDownEvent = document.getElementById("keyDown");
+
+      window.addEventListener("keydown", (event) => {
+        keyDownEvent.innerHTML = `You pressed ${event.key}`;
+      });
+    </script>
+  </body>
+</html>

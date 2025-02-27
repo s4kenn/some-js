@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colors</title>
+  </head>
+  <body>
+    <h1>Change colors</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+      const myBody = document.querySelector("body");
+      let myInterval;
+
+      function getRandomColor() {
+        let letters = "0123456789ABCDEF";
+        let color = "#";
+
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+
+        return color;
+      }
+
+      const startBtn = document.getElementById("start");
+      const stopBtn = document.getElementById("stop");
+
+      startBtn.addEventListener("click", () => {
+        if (!myInterval)
+          myInterval = setInterval(() => {
+            myBody.style.backgroundColor = getRandomColor();
+          }, 1000);
+      });
+
+      stopBtn.addEventListener("click", () => {
+        if (myInterval) {
+          clearInterval(myInterval);
+          myInterval = null;
+          myBody.style.backgroundColor = "white";
+        }
+      });
+    </script>
+  </body>
+</html>

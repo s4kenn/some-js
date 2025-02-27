@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trial</title>
+  </head>
+  <body>
+    <h1>Some async practice</h1>
+    <button id="Start">Start</button>
+    <button id="Stop">Stop</button>
+    <p id="textView"></p>
+  </body>
+  <script>
+    // Browser APIs
+    /*
+    setTimeout(function () {
+      console.log(`Aditya Singh`);
+    }, 2000);
+    */
+
+    /*
+    const myName = () => {
+      console.log(`Aditya Singh`);
+      document.querySelector("h1").innerHTML = "Best JS series";
+    };
+
+    const myTimeout = setTimeout(myName, 2000);
+
+    // How to clear setTimeout
+
+    const button = document.getElementById("stop");
+    button.addEventListener("click", () => clearTimeout(myTimeout));
+
+    // setInterval(myName, 2000);
+
+    */
+
+    const textView = document.getElementById("textView");
+    const displayDate = (name) => {
+      // Date.now()
+      textView.innerHTML = "Hello " + name + " " + new Date().toLocaleString();
+    };
+
+    let myInterval;
+
+    const startButton = document.getElementById("Start");
+
+    startButton.addEventListener("click", () => {
+      if (!myInterval) myInterval = setInterval(displayDate, 1000, "Aditya");
+    });
+
+    const stopButton = document.getElementById("Stop");
+
+    stopButton.addEventListener("click", () => {
+      clearInterval(myInterval);
+      myInterval = null;
+      textView.innerHTML = null;
+    });
+  </script>
+</html>
